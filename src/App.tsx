@@ -2,7 +2,6 @@ import MainPage from './pages/MainPage';
 import { HashRouter, Routes, Route } from 'react-router';
 import PasswordGenerator from './standalones/password-generator-app/App';
 
-const basename = import.meta.env.BASE_URL;
 
 function App() {
 
