@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url('./assets/fonts/JetBrainsMono-VariableFont_wght.ttf');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url('./assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@layer base {
+  html {
+    background: var(--color-grey-950);
+    overflow-x: hidden;
+  }
+}
+
+@theme {
+  --font-mono: "JetBrains Mono";
+  --text-base: 18px;
+  --text-base--line-height: 24px; /* Preset 3 */
+  --text-sm: 16px;
+  --text-sm--line-height: 20px; /* Preset 4 */
+  --text-lg: 24px;
+  --text-lg--line-height: 32px; /* Preset 2 */
+  --text-xl: 32px;
+  --text-xl--line-height: 42px; /* Preset 1 */
+
+  --spacing: 8px;
+
+  --color-green-200: #A4FFAF;
+  --color-yellow-300: #F8CD65;
+  --color-orange-400: #FB7C58;
+  --color-red-500: #F64A4A;
+
+  --color-grey-200: #E6E5EA;
+  --color-grey-600: #817D92;
+  --color-grey-700: #54535B;
+  --color-grey-800: #24232C;
+  --color-grey-850: #18171F;
+  --color-grey-950: #08070B;
+}
+
+@layer components {
+  .slider {
+    @apply
+      appearance-none
+      my-[10px]
+      [&::-webkit-slider-runnable-track]:h-[8px]
+      [&::-webkit-slider-thumb]:appearance-none
+      [&::-webkit-slider-thumb]:mt-[-10px]
+      [&::-webkit-slider-thumb]:w-[28px]
+      [&::-webkit-slider-thumb]:h-[28px]
+      [&::-webkit-slider-thumb]:rounded-full
+      [&::-webkit-slider-thumb]:bg-grey-200
+      active:[&::-webkit-slider-thumb]:border-2
+      active:[&::-webkit-slider-thumb]:border-green-200
+      active:[&::-webkit-slider-thumb]:bg-grey-850;
+  }
+
+}

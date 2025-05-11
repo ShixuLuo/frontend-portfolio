@@ -1,4 +1,5 @@
 import Grid from '../components/Grid';
+import '../index.css';
 
 export default function MainPage() {
 
