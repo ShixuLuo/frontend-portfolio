@@ -6,7 +6,7 @@ const STRUCTURE_CLASS: Record<StructureType, string>  = {
   'app': 'md:col-span-3',
 };
 
-export default function Card({ structure, name, path }: {structure: StructureType, name: string}) {
+export default function Card({ structure, name, path }: {structure: StructureType, name: string, path: string}) {
 
   return (
     <a href={path} className={`slate-500 h-[9em] bg-slate-400 rounded-md p-2 flex flex-col justify-between col-span-2 ` + STRUCTURE_CLASS[structure] + ' hover:bg-slate-700 group'}>

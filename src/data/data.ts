@@ -3,7 +3,7 @@ type StructureType = 'component' | 'page' | 'app';
 type CollectionEntry = {
   structure: StructureType;
   name: string;
-  path?: string;
+  path: string;
 };
 
 const collection: CollectionEntry[] = [
