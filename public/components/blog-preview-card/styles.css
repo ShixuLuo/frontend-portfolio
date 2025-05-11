@@ -1,0 +1,149 @@
+@font-face {
+    font-family: "Figtree";
+    src: url("./assets/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-yellow: #F4D04E;
+    --color-gray-500: #6B6B6B;
+    --color-gray-950: #111111;
+    --color-white: #FFFFFF;
+
+    --text-preset-1-font-family: "Figtree";
+    --text-preset-1-font-weight: 800;
+    --text-preset-1-font-size: 24px;
+    --text-preset-1-line-height: 150%;
+    --text-preset-1-letter-spacing: 0;
+    --text-preset-2-font-family: "Figtree";
+    --text-preset-2-font-weight: medium;
+    --text-preset-2-font-size: 16px;
+    --text-preset-2-line-height: 150%;
+    --text-preset-2-letter-spacing: 0px;
+    --text-preset-3-font-family: "Figtree";
+    --text-preset-3-font-weight: medium;
+    --text-preset-3-font-size: 14px;
+    --text-preset-3-line-height: 150%;
+    --text-preset-3-letter-spacing: 0;
+    --text-preset-3-bold-font-weight: 800;
+
+    --spacing-50: 4px;
+    --spacing-100: 8px;
+    --spacing-150: 12px;
+    --spacing-300: 24px;
+}
+
+.text-preset-1 {
+    font-family: var(--text-preset-1-font-family);
+    font-weight: var(--text-preset-1-font-weight);
+    font-size: var(--text-preset-1-font-size);
+    line-height: var(--text-preset-1-line-height);
+    letter-spacing: var(--text-preset-1-letter-spacing);
+    color: var(--color-gray-950);
+}
+
+.text-preset-2 {
+    font-family: var(--text-preset-2-font-family);
+    font-weight: var(--text-preset-2-font-weight);
+    font-size: var(--text-preset-2-font-size);
+    line-height: var(--text-preset-2-line-height);
+    letter-spacing: var(--text-preset-2-letter-spacing);
+    color: var(--color-gray-500);
+}
+
+.text-preset-3 {
+    font-family: var(--text-preset-3-font-family);
+    font-weight: var(--text-preset-3-font-weight);
+    font-size: var(--text-preset-3-font-size);
+    line-height: var(--text-preset-3-line-height);
+    letter-spacing: var(--text-preset-3-letter-spacing);
+    color: var(--color-gray-950);
+}
+
+.text-preset-3-bold {
+    font-family: var(--text-preset-3-font-family);
+    font-weight: var(--text-preset-3-bold-font-weight);
+    font-size: var(--text-preset-3-font-size);
+    line-height: var(--text-preset-3-line-height);
+    letter-spacing: var(--text-preset-3-letter-spacing);
+   color: var(--color-gray-950);
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 384px;
+    background-color: var(--color-white);
+    padding: var(--spacing-300);
+    border-radius: 20px;
+    border: 1px solid var(--color-gray-950);
+    box-shadow: 8px 8px 0 0 rgb(0 0 0 / 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: var(--spacing-300);
+}
+
+.blog-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing-150);
+}
+
+.content .category {
+    width: min-content;
+    padding: var(--spacing-50) var(--spacing-150);
+    background-color: var(--color-yellow);
+    border-radius: 4px;
+}
+
+.author {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: var(--spacing-150);
+}
+
+.author img {
+    width: 32px;
+    height: 32px;
+}
+
+.content h1:hover {
+    color: var(--color-yellow);
+}
+
+@media (max-width: 375px) {
+    :root {
+        --text-preset-1-font-size: 20px;
+        --text-preset-2-font-size: 14px;
+        --text-preset-3-font-size: 12px;
+    }
+
+    .card {
+        width: 327px;
+    }
+
+    .blog-image {
+        height: 200px;
+    }
+}

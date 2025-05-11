@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="./output.css">
+
+    <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  </head>
+  <body>
+    <main class="flex items-center justify-center bg-blue-700 min-h-screen">
+      <!-- Sign-up form start -->
+
+      <div class="w-screen flex flex-col gap-4 font-sans pb-5 bg-white md:w-[608px] md:h-min md:p-5 md:rounded-lg lg:flex-row-reverse lg:w-fit lg:gap-8 lg:px-3 lg:py-2 lg:items-center" id="main-page">
+        <img src="./assets/images/illustration-sign-up-mobile.svg" alt="A background image" class="md:rounded-md md:h-[358px] md:object-cover lg:w-[400px] lg:h-[593px] lg:object-[62%_112%]">
+
+        <div class="mx-3 flex flex-col gap-4 text-base lg:w-[376px] lg:h-min">
+          <div class="flex flex-col gap-3 text-blue-800">
+            <h1 class="text-lg font-bold md:text-xl">
+              Stay updated!
+            </h1>
+
+            <p>
+              Join 60,000+ product managers receiving monthly updates on:
+            </p>
+
+            <ul class="list-outside flex flex-col gap-2">
+              <li class="flex items-start gap-2">
+                <img src="./assets/images/icon-list.svg" alt="checkmark">
+                Product discovery and building what matters
+              </li>
+              <li class="flex items-start gap-2">
+                <img src="./assets/images/icon-list.svg" alt="checkmark">
+                Measuring to ensure updates are a success
+              </li>
+              <li class="flex items-start gap-2">
+                <img src="./assets/images/icon-list.svg" alt="checkmark">
+                And much more!
+              </li>
+            </ul>
+          </div>
+
+          <form class="flex flex-col gap-3" novalidate>
+            <div class="flex flex-col gap-1">
+              <label for="email" class="text-sm font-bold flex justify-between">
+                <p>
+                  Email address
+                </p>
+                <p class="text-red hidden" id="error-message">
+                  Valid email required
+                </p>
+              </label>
+              <input 
+                class="px-3 py-2 rounded-sm border placeholder:text-grey"
+                type="email" 
+                id="email" 
+                name="user-email" 
+                placeholder="email@company.com" 
+                required 
+                />
+            </div>
+            <button class="py-2 bg-blue-800 text-white rounded-sm text-nowrap font-bold hover:bg-linear-to-r hover:from-[#FF6A3A] hover:to-[#FF527B]" type="submit">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Sign-up form end -->
+
+      <!-- Success message start -->
+
+      <div class="w-full h-screen flex flex-col pt-[149px] pb-[70px] px-3 justify-between hidden bg-white md:w-[504px] md:h-min md:p-8 md:gap-4 md:rounded-lg" id="success-page">
+        <div class="flex flex-col gap-4 text-blue-800">
+          <img src="./assets/images/icon-success.svg" alt="success" class="w-[64px] h-[64px]">
+          <h1 class="text-lg font-bold md:text-xl">
+            Thanks for subscribing!
+          </h1>
+
+          <p class="text-base">
+            A confirmation email has been sent to <span class="font-bold" id="show-email"></span>. 
+            Please open it and click the button inside to confirm your subscription.
+          </p>
+        </div>
+
+        <button class="py-2 text-nowrap text-center bg-blue-800 text-white font-bold rounded-sm hover:bg-linear-to-r hover:from-[#FF6A3A] hover:to-[#FF527B]" id="dismiss">
+          Dismiss message
+        </button>
+      </div>
+
+      <!-- Success message end -->
+    </main>
+  <script>
+    const form = document.querySelector("form");
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (form.checkValidity()) {
+        const formData = new FormData(form);
+        const mainPage = document.getElementById("main-page");
+        mainPage.classList.add("hidden");
+        const emailSpan = document.getElementById("show-email");
+        emailSpan.textContent = formData.get("user-email");
+        const successPage = document.getElementById("success-page");
+        successPage.classList.remove('hidden');
+      } else {
+        console.log("failed");
+        const errorMessage = document.getElementById("error-message");
+        errorMessage.classList.remove("hidden");
+        const emailInput = document.getElementById("email");
+        emailInput.classList.add("bg-red-100", "text-red");
+      }
+    });
+
+    const returnButton = document.getElementById("dismiss");
+    returnButton.addEventListener("click", (e) => {
+      form.reset();
+      const successPage = document.getElementById("success-page");
+      successPage.classList.add('hidden');
+      const mainPage = document.getElementById("main-page");
+      mainPage.classList.remove("hidden");
+    });
+  </script>
+  </body>
+</html>

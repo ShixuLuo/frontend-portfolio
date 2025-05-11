@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-black: #121212;
+  --color-dark_blue: #19202D;
+  --color-white: #FFFFFF;
+  --color-grey-100: #E7EAEE;
+  --color-grey-200: #CFCFCF;
+  --color-grey-400: #676D7E;
+  --color-grey-500: #48556A;
+  --color-purple-50: #EDE4EF;
+  --color-purple-300: #A775F1;
+  --color-purple-500: #733FC8;
+
+  --text-preset-font-family: "Barlow Semi Condensed";
+  --text-preset-letter-spacing: 0;
+  
+  --text-preset-1-font-size: 20px;
+  --text-preset-1-font-weight: 500;
+  --text-preset-1-line-height: 120%;
+
+  --text-preset-2-font-size: 13px;
+  --text-preset-2-font-weight: normal;
+  --text-preset-2-line-height: 110%;
+
+  --text-preset-3-font-size: 13px;
+  --text-preset-3-font-weight: normal;
+  --text-preset-3-line-height: 140%;
+
+  --text-preset-4-font-size: 11px;
+  --text-preset-4-font-weight: normal;
+  --text-preset-4-line-height: 110%;
+  
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+}
+
+main {
+  width: 100vw;
+  padding-top: 73px;
+  padding-bottom: 70px;
+  background-color: #F6F5F6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 305px;
+
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: 1fr;
+  gap: var(--spacing-400);
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    width: 647px;
+    
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card-container {
+    width: 1114px;
+    height: 582px;
+    
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.card {
+  width: 100%;
+  padding: var(--spacing-400);
+  border-radius: var(--spacing-100);
+  box-shadow: 40px 60px 50px -47px rgb(72 85 106 / 24%); 
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+}
+
+.card--purple {
+  background-color: var(--color-purple-500);
+  color: var(--color-white);
+}
+
+.card--grey {
+  background-color: var(--color-grey-500);
+  color: var(--color-white);
+}
+
+.card--white {
+  background-color: var(--color-white);
+  color: var(--color-grey-500);
+}
+
+.card--dark-blue {
+  background-color: var(--color-dark_blue);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .card--full {
+    grid-column: span 2;
+  }
+  
+  .card--full-vertical {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card--full {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  
+  .card--full-vertical {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
+
+img.card__background {
+  display: none;
+}
+
+@media (min-width: 768px) {
+img.card__background {
+  display: unset;
+  width: 104px;
+  height: 102px;
+  position: absolute;
+  right: 60px;
+  top: 0px;
+  z-index: 0;
+}
+}
+
+.card__profile {
+  
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+
+.card__profile img {
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+}
+
+.card__profile__text {
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-50);
+}
+
+.card__profile__text h2 {
+  font-family: var(--text-preset-font-family);
+  font-size: var(--text-preset-2-font-size);
+  font-weight: var(--text-preset-2-font-weight);
+  line-height: var(--text-preset-2-line-height);
+  letter-spacing: var(--text-preset-letter-spacing);
+}
+
+.card__profile__text p {
+  font-family: var(--text-preset-font-family);
+  font-size: var(--text-preset-4-font-size);
+  font-weight: var(--text-preset-4-font-weight);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-letter-spacing);
+}
+
+.card__comment {
+  font-family: var(--text-preset-font-family);
+  font-size: var(--text-preset-1-font-size);
+  font-weight: var(--text-preset-1-font-weight);
+  line-height: var(--text-preset-1-line-height);
+  letter-spacing: var(--text-preset-letter-spacing);
+  z-index: 1;
+}
+
+.card__quote {
+  font-family: var(--text-preset-font-family);
+  font-size: var(--text-preset-3-font-size);
+  font-weight: var(--text-preset-3-font-weight);
+  line-height: var(--text-preset-3-line-height);
+  letter-spacing: var(--text-preset-letter-spacing);
+}

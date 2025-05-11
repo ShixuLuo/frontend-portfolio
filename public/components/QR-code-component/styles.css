@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+:root {
+    --color-slate-900: #1F314F;
+    --color-slate-500: #68778D;
+    --color-slate-300: #D5E1EF;
+    --color-white: #FFFFFF;
+
+    --text-preset-1-font-family: "Outfit", sans-serif;
+    --text-preset-1-font-weight: bold;
+    --text-preset-1-font-size: 22px;
+    --text-preset-1-line-height: 120%;
+    --text-preset-1-letter-spacing: 0px;
+    --text-preset-2-font-family: "Outfit", sans-serif;
+    --text-preset-2-font-weight: normal;
+    --text-preset-2-font-size: 15px;
+    --text-preset-2-line-height: 140%;
+    --text-preset-2-letter-spacing: 0.2px;
+
+    --spacing-200: 16px;
+    --spacing-300: 24px;
+    --spacing-500: 40px;
+}
+
+body {
+    background-color: var(--color-slate-300);
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: var(--text-preset-1-font-family);
+    font-weight: var(--text-preset-1-font-weight);
+    font-size: var(--text-preset-1-font-size);
+    line-height: var(--text-preset-1-line-height);
+    letter-spacing: var(--text-preset-1-letter-spacing);
+    color: var(--color-slate-900);
+    text-align: center;
+}
+
+p {
+    font-family: var(--text-preset-2-font-family);
+    font-weight: var(--text-preset-2-font-weight);
+    font-size: var(--text-preset-2-font-size);
+    line-height: var(--text-preset-2-line-height);
+    letter-spacing: var(--text-preset-2-letter-spacing);
+    color: var(--color-slate-500);
+    text-align: center;
+}
+
+.container {
+    width: min-content;
+    background-color: var(--color-white);
+    padding: var(--spacing-200) var(--spacing-200) var(--spacing-500);
+    border-radius: 20px;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-300);
+}
+
+.container img {
+    width: 288px;
+    height: 288px;
+    border-radius: 10px;
+}
+
+.container__content {
+    padding: 0px var(--spacing-200);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-200);
+}

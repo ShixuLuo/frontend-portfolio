@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./output.css">
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+  </head>
+  <body class="font-sans text-base text-white min-h-screen">
+    <main class="px-3 py-10 flex justify-center items-center bg-navy-950 w-full min-h-screen">
+      <div class="grid grid-cols-1 grid-rows-[auto] gap-3 md:grid-rows-[min-content_1fr_1fr] md:grid-cols-[min-content_min-content_min-content] lg:grid-cols-4 lg:grid-rows-2">
+        <!-- Profile card -->
+        <div class="pb-3 flex flex-col gap-3 bg-navy-900 rounded-md w-full md:col-span-full items-center lg:col-span-1 lg:row-span-full lg:w-[255px]">
+          <div class="w-full p-4 flex justify-center items-center gap-3 bg-purple-600 rounded-md md:justify-start lg:flex-col lg:items-start lg:h-[354px] lg:gap-5">
+            <img src="images/image-jeremy.png" alt="Picture of Jeremy" class="w-[64px] h-[64px] rounded-full border-3 border-white lg:w-[78px] lg:h-[78px]">
+            <div class="flex flex-col gap-1 lg:w-min">
+              <p class="text-sm text-navy-200">
+                Report for
+              </p>
+              <h1 class="text-lg text-white font-light lg:text-2xl">
+                Jeremy Robson
+              </h1>
+            </div>
+          </div>
+          <div class="w-full flex text-center text-purple-500 md:max-w-[343px] lg:flex-col lg:text-left lg:items-start lg:px-4 lg:gap-[21px]">
+            <button id="daily-button" class="flex-1 block">
+              Daily
+            </button>
+            <button id="weekly-button" class="flex-1 block">
+              Weekly
+            </button>
+            <button id="monthly-button"class="flex-1 block">
+              Monthly
+            </button>
+          </div>
+        </div>
+        <!-- Profile card end -->
+
+        <!-- work card -->
+        <div id="Work" class="card bg-orange-300 bg-[url(images/icon-work.svg)]">
+          <div>
+            <div class="card__title">
+              <h2>
+                Work
+              </h2>
+              <button>
+                <img src="images/icon-ellipsis.svg" alt="Icon">
+              </button>
+            </div>
+            <div class="card__body">
+              <h3>
+                32hrs
+              </h3>
+              <p>
+                Last Week - 36hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- work card end -->
+
+        <!-- play card -->
+        <div id="Play" class="card bg-blue-300 bg-[url(images/icon-play.svg)]">
+          <div>
+            <div class="card__title">
+              <h2>
+                Play
+              </h2>
+              <button>
+                <img src="images/icon-ellipsis.svg" alt="Icon">
+              </button>
+            </div>
+            <div class="card__body">
+              <h3>
+                10hrs
+              </h3>
+              <p>
+                Last Week - 36hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- play card end -->
+
+
+        <!-- study card -->
+        <div id="Study" class="card bg-pink-400 bg-[url(images/icon-study.svg)]">
+          <div>
+            <div class="card__title">
+              <h2>
+                Study
+              </h2>
+              <button>
+                <img src="images/icon-ellipsis.svg" alt="Icon">
+              </button>
+            </div>
+            <div class="card__body">
+              <h3>
+                4hrs
+              </h3>
+              <p>
+                Last Week - 7hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- study card end -->
+
+        <!-- exercise card -->
+        <div id="Exercise" class="card bg-green-400 bg-[url(images/icon-exercise.svg)]">
+          <div>
+            <div class="card__title">
+              <h2>
+                Exercise
+              </h2>
+              <button>
+                <img src="images/icon-ellipsis.svg" alt="Icon">
+              </button>
+            </div>
+            <div class="card__body">
+              <h3>
+                4hrs
+              </h3>
+              <p>
+                Last Week - 5hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- exercise card end -->
+
+        <!-- social card -->
+        <div id="Social" class="card bg-purple-700 bg-[url(images/icon-social.svg)]">
+          <div>
+            <div class="card__title">
+              <h2>
+                Social
+              </h2>
+              <button>
+                <img src="images/icon-ellipsis.svg" alt="Icon">
+              </button>
+            </div>
+            <div class="card__body">
+              <h3>
+                5hrs
+              </h3>
+              <p>
+                Last Week - 10hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- exercise card end -->
+        
+        <!-- self care card -->
+        <div id="Self Care" class="card bg-yellow-300 bg-[url(images/icon-self-care.svg)]">
+          <div>
+            <div class="card__title">
+              <h2>
+                Self Care
+              </h2>
+              <button>
+                <img src="images/icon-ellipsis.svg" alt="Icon">
+              </button>
+            </div>
+            <div class="card__body">
+              <h3>
+                2hrs
+              </h3>
+              <p>
+                Last Week - 2hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- exercise card end -->
+      </div>
+    </main>
+    <script>
+      async function getData(timeframe) {
+        const url = "./data.json";
+
+        const data = await fetch(url);
+        const json = await data.json();
+
+        json.forEach((log) => {
+          const card = document.getElementById(log.title);
+          const time = card.querySelector('h3');
+          const prevTime = card.querySelector("p");
+          time.textContent = log.timeframes[timeframe].current + "hrs";
+          let prefix;
+          if (timeframe == 'daily') {
+            prefix = 'Yesterday';
+          } else if (timeframe == 'weekly') {
+            prefix = 'Last Week';
+          } else if (timeframe == 'monthly') {
+            prefix = 'Last Month';
+          }
+          prevTime.textContent = prefix + ' - ' + log.timeframes[timeframe].previous + "hrs";
+        });
+      }
+
+      const dailyButton = document.getElementById("daily-button");
+      const weeklyButton = document.getElementById("weekly-button");
+      const monthlyButton = document.getElementById("monthly-button");
+      dailyButton.addEventListener('click', () => {
+        dailyButton.classList.add('text-white');
+        weeklyButton.classList.remove('text-white');
+        monthlyButton.classList.remove('text-white');
+        getData('daily');
+      });
+      weeklyButton.addEventListener('click', () => {
+        dailyButton.classList.remove('text-white');
+        weeklyButton.classList.add('text-white');
+        monthlyButton.classList.remove('text-white');
+        getData('weekly');
+      });
+      monthlyButton.addEventListener('click', () => {
+        dailyButton.classList.remove('text-white');
+        weeklyButton.classList.remove('text-white');
+        monthlyButton.classList.add('text-white');
+        getData('monthly');
+      });
+      weeklyButton.classList.add('text-white');
+      getData('weekly');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing: 8px;
+  --radius-lg: 25px;
+  --radius-md: 15px;
+  --radius-sm: 5px;
+
+  --color-grey-50: #F3F9FA;
+  --color-grey-200: #C5E4E7;
+  --color-grey-300: #9EBBBD;
+  --color-grey-400: #7F9D9F;
+  --color-grey-500: #5E7A7D;
+  --color-grey-550: #547878;
+
+  --color-green-200: #9FE8DF;
+  --color-green-400: #26C2AE;
+  --color-green-750: #0D686D;
+  --color-green-800: #085C61;
+  --color-green-900: #00474B;
+  --color-orange-400: #E17052;
+
+  --font-mono: "Space Mono";
+  --text-base: 20px;
+  --text-base--line-height: 30px; /* preset 4 */
+  --text-sm: 16px;
+  --text-sm--line-height: 24px; /* preset 5 */
+  --text-xs: 13px;
+  --text-xs--line-height: 19px; /* preset 6 */
+  --text-lg: 24px;
+  --text-lg--line-height: 36px; /* preset 3 */
+  --text-xl: 32px;
+  --text-xl--line-height: 47px; /* preset 2 */
+  --tracking-tight: -0.67px;
+  --text-2xl: 48px;
+  --text-2xl--line-height: 71px; /* preset 1 */
+  --tracking-tighter: -1px;
+}
+
+@layer components {
+  .tip-button {
+    @apply rounded-sm px-2 py-1 bg-green-900 text-white text-lg font-bold hover:bg-green-200;
+  }
+}

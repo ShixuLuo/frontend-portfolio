@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing: 8px;
+
+  --radius-md: 15px;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-navy-950: #0E1323;
+  --color-navy-900: #1C204B;
+  --color-navy-800: #33397A;
+  --color-navy-200: #BBC0FF;
+  --color-orange-300: #FF8B64;
+  --color-purple-700: #7335D2;
+  --color-purple-600: #5747EA;
+  --color-purple-500: #7078C9;
+  --color-blue-300: #55C2E6;
+  --color-pink-400: #FF5E7D;
+  --color-green-400: #4BCF82;
+  --color-yellow-300: #F1C75B;
+  --color-grey-200: #D8D8D8;
+
+  --font-sans: "Rubik";
+
+  --text-base: 18px;
+  --text-base--line-height: 21px; /* Text Preset 5 */
+
+  --text-sm: 15px;
+  --text-sm--line-height: 18px; /* Text Preset 6 */
+
+  --text-lg: 24px;
+  --text-lg--line-height: 28px; /* Text Preset 4 */
+
+  --text-xl: 32px;
+  --text-xl--line-height: 38px; /* Text Preset 3 */
+
+  --text-2xl: 40px;
+  --text-2xl--line-height: 47px; /* Text Preset 2 */
+
+  --text-3xl: 56px;
+  --text-3xl--line-height: 66px; /* Text Preset 1 */
+}
+
+@layer components {
+  .card {
+    @apply w-full h-[160px] bg-blue-300 rounded-md flex flex-col-reverse bg-no-repeat bg-position-[top_-8px_right_16px] md:w-[200px] md:h-[213px] lg:w-[255px] lg:h-[244px];
+  }
+
+  .card > div {
+    @apply bg-navy-900 p-3 flex flex-col gap-1 p-3 rounded-md md:gap-2 lg:p-4 lg:gap-3 hover:bg-navy-800;
+  }
+
+  .card__title {
+    @apply flex justify-between;
+  }
+
+  .card__title > h2 {
+    @apply text-base font-medium;
+  }
+
+  .card__body {
+    @apply flex justify-between items-center md:flex-col md:items-start md:gap-1;
+  }
+
+  .card__body > h3 {
+    @apply text-xl font-light md:text-3xl;
+  }
+
+  .card__body > p {
+    @apply text-sm text-navy-200;
+  }
+}

@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+@theme {
+  --spacing: 8px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 36px;
+  
+  --color-white: #FFFFFF;
+  --color-grey: #949494;
+  --color-blue-800: #242742;
+  --color-blue-700: #36384D;
+  --color-red: #FF6155;
+
+  --font-sans: "Roboto";
+  --text-base: 16px;
+  --text-base--line-height: 150%;
+  --text-lg: 40px;
+  --text-lg--line-height: 100%;
+  --text-xl: 56px;
+  --text-xl--line-height: 100%;
+  --text-sm: 12px;
+  --text-sm--line-height: 150%;
+}

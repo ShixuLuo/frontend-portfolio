@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./output.css">
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+  </head>
+  <body class="font-mono">
+    <main class="min-h-screen flex flex-col items-center bg-grey-200 pt-[50px] gap-5 w-full lg:pt-20 lg:gap-11 pb-[50px]">
+      <img src="./images/logo.svg" alt="Splitter">
+      <div class="p-4 bg-white w-full rounded-t-lg flex flex-col gap-4 md:h-[800px] md:w-[608px] md:px-10 md:py-6 md:rounded-b-lg lg:h-[481px] lg:w-[920px] lg:flex-row lg:gap-6 lg:items-center lg:p-4">
+        <div class="flex flex-col gap-4 w-full lg:w-[379px]">
+          <div class="flex flex-col gap-1 w-full">
+            <h1 class="text-sm font-bold text-grey-500">
+              Bill
+            </h1>
+            <div class="flex bg-grey-50 rounded-sm py-1 px-2 w-full">
+              <img src="./images/icon-dollar.svg" alt="Icon" class="object-scale-down">
+              <input type="number" id="bill" min="0" name="bill" class="w-full text-right text-lg font-bold text-green-900 focus:outline-none placeholder:text-grey-300" placeholder="0">
+            </div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <h2 class="text-sm font-bold text-grey-500">
+              Select Tip %
+            </h2>
+            <div class="grid grid-cols-2 grid-rows-3 gap-2 md:grid-cols-3 md:grid-rows-2">
+              <button class="tip-button" data-percent="0.05">5%</button>
+              <button class="tip-button" data-percent="0.10">10%</button>
+              <button class="tip-button" data-percent="0.15">15%</button>
+              <button class="tip-button" data-percent="0.25">25%</button>
+              <button class="tip-button" data-percent="0.5">50%</button>
+              <input id="custom-tip" type="number" name="percent" min="0" max="100" placeholder="Custom" class="text-center rounded-sm bg-grey-50 text-lg font-bold text-green-900 focus:outline-none placeholder:text-grey-550">
+            </div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <div class="flex justify-between">
+              <h2 class="text-sm font-bold text-grey-500">
+                Number of People
+              </h2>
+              <p id="people-warning" class="text-sm font-bold text-orange-400 hidden">
+                Can't be zero
+              </p>
+            </div>
+            <div id="people-container" class="flex bg-grey-50 rounded-sm py-1 px-2 justify-between">
+              <img src="./images/icon-person.svg" alt="Icon" class="object-scale-down">
+              <input type="number" id="people" min="0" class="text-right w-full text-lg font-bold text-green-900 focus:outline-none placeholder:text-grey-300" placeholder="0">
+            </div>
+          </div>
+        </div>
+        <div class="bg-green-900 text-white p-3 rounded-md flex flex-col gap-4 lg:p-4 lg:justify-between lg:w-[413px] lg:h-[417px]">
+          <div class="flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+              <div>
+                <h2 class="text-sm font-bold">
+                  Tip Amount
+                </h2>
+                <p class="text-xs font-bold text-grey-400">
+                  / person
+                </p>
+              </div>
+              <p id="tip-person" class="text-xl font-bold tracking-tight text-green-400 md:text-2xl md:tracking-tighter">$0.00</p>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <h2 class="text-sm font-bold">
+                  Total
+                </h2>
+                <p class="text-xs font-bold text-grey-400">
+                  / person
+                </p>
+              </div>
+              <p id="total-person" class="text-xl font-bold tracking-tight text-green-400 md:text-2xl md:tracking-tighter">$0.00</p>
+            </div>
+          </div>
+          <button id="reset" class="bg-green-750 rounded-sm px-4 py-1 text-base font-bold text-green-800 hover:bg-green-200">
+            Reset
+          </button>
+        </div>
+      </div>
+    </main>
+    <script>
+      const tipButtons = document.querySelectorAll(".tip-button");
+      const customTip = document.getElementById("custom-tip");
+      const peopleInput = document.getElementById("people");
+      const billInput = document.getElementById("bill");
+      const resetButton = document.getElementById('reset');
+
+      let bill = 0;
+      let people = 0;
+      let tipPercent = 0;
+
+      function calcTip() {
+        const tipPerson = document.getElementById("tip-person");
+        const totalPerson = document.getElementById("total-person");
+        if (people !== 0 || bill !== 0 || tipPercent !== 0) {
+          resetButton.classList.remove('bg-green-750');
+          resetButton.classList.add('bg-green-200');
+        }
+        if (people === 0 || people === null) {
+          tipPerson.textContent = "$0.00";
+          totalPerson.textContent = "$0.00";
+        } else {
+          const totalTip = bill * tipPercent;
+          const tipPerPerson = totalTip / people;
+          const totalPerPerson = (Number(totalTip) + Number(bill)) / people;
+          tipPerson.textContent = `$${tipPerPerson.toFixed(2)}`;
+          totalPerson.textContent = `$${totalPerPerson.toFixed(2)}`;
+        }
+      }
+      
+      function handlePercentClick(button)  {
+        return () => {
+          tipButtons.forEach((b) => {b.classList.remove("bg-green-400")});
+          customTip.classList.remove("border-orange-400");
+          customTip.classList.remove("border-2");
+          button.classList.add("bg-green-400");
+          customTip.value = "";
+          tipPercent = button.dataset.percent;
+          calcTip();
+        };
+      };
+
+      tipButtons.forEach((button) => {
+        button.addEventListener('click', handlePercentClick(button));
+      });
+
+      customTip.addEventListener("input", (e) => {
+        const currVal = e.target.value;
+        if (currVal <= 0 || currVal >= 100) {
+          customTip.classList.add("border-orange-400");
+          customTip.classList.add("border-2");
+          console.log("??");
+        } else {
+          customTip.classList.remove("border-orange-400");
+          customTip.classList.remove("border-2");
+          tipButtons.forEach((b) => {b.classList.remove("bg-green-400")});
+          tipPercent = currVal / 100;
+          calcTip();
+        }
+      });
+
+      peopleInput.addEventListener("input", (e) => {
+        const currVal = e.target.value;
+        const peopleWarning = document.getElementById("people-warning");
+        const peopleContainer = document.getElementById("people-container");
+        if (currVal == 0) {
+          peopleWarning.classList.remove("hidden");
+          peopleContainer.classList.add("border-orange-400");
+          peopleContainer.classList.add("border-2");
+          people = 0;
+        } else {
+          peopleWarning.classList.add("hidden");
+          peopleContainer.classList.remove("border-orange-400");
+          peopleContainer.classList.remove("border-2");
+          people = currVal;
+          calcTip();
+        }
+      });
+
+      billInput.addEventListener("input", (e) => {
+        const currVal = e.target.value;
+
+        bill = currVal;
+        calcTip();
+      });
+
+      resetButton.addEventListener('click', (e) => {
+        people = 0;
+        bill = 0;
+        tipPercent = 0;
+        calcTip();
+        tipButtons.forEach((button) => {
+          button.classList.remove("bg-green-400");
+        });
+        peopleInput.value = "";
+        billInput.value = "";
+        resetButton.classList.add('bg-green-750');
+        resetButton.classList.remove('bg-green-200');
+      })
+    </script>
+  </body>
+</html>
