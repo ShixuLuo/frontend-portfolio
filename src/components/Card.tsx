@@ -1,5 +1,7 @@
 type StructureType = 'component' | 'page' | 'app';
 
+const basename = import.meta.env.BASE_URL;
+
 const STRUCTURE_CLASS: Record<StructureType, string>  = {
   'component': 'md:col-span-1',
   'page': '',
@@ -9,7 +11,7 @@ const STRUCTURE_CLASS: Record<StructureType, string>  = {
 export default function Card({ structure, name, path }: {structure: StructureType, name: string, path: string}) {
 
   return (
-    <a href={path} className={`slate-500 h-[9em] bg-slate-400 rounded-md p-2 flex flex-col justify-between col-span-2 ` + STRUCTURE_CLASS[structure] + ' hover:bg-slate-700 group'}>
+    <a href={basename + path} className={`slate-500 h-[9em] bg-slate-400 rounded-md p-2 flex flex-col justify-between col-span-2 ` + STRUCTURE_CLASS[structure] + ' hover:bg-slate-700 group'}>
       <h3 className="group-hover:text-slate-300">
         # {structure} 
       </h3>
